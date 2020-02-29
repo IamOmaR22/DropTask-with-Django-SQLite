@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Todo List Manager - DropTask</title>
+{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+    <br>
+
+<!-- Forms Start -->
+<form method="POST">
+    {% csrf_token %}
+  <div class="form-group">
+    <input type="text" name="task" class="form-control" placeholder="New Task?">
+  </div>
+  <button type="submit" class="btn btn-dark">Add Task</button>
+</form>
+<!-- Forms End -->
+    <br>
+  <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Task</th>
+          <th scope="col">Done</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+  <tbody>
+
+  {% for obj in all_tasks %} <!-- obj contains task,id,done etc -->
+      {% if obj.done %}
+        <tr class="table-success"> <!-- color -->
+          <td>{{ obj.task }}</td>
+          <td>Completed</td>
+          <td>{{ obj.edit }}</td>
+          <td>{{ obj.delete }}</td>
+        </tr>
+      {% else %}
+          <tr>
+          <td>{{ obj.task }}</td>
+          <td>Not Completed</td>
+          <td>{{ obj.edit }}</td>
+          <td>{{ obj.delete }}</td>
+        </tr>
+      {% endif %}
+  {% endfor %}
+
+  </tbody>
+  </table>
+</div>
+
+{% endblock %}
