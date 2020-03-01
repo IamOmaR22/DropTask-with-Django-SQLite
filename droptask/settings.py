@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'todolist',
     'users',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")] ## Need to add for static files
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'  ## To use crispy forms
