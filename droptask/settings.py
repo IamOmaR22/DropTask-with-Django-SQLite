@@ -125,3 +125,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")] ## Need to add for static files
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'  ## To use crispy forms
+
+LOGIN_REDIRECT_URL = 'todolist'    ## To redirect after login
+
+LOGIN_URL = 'login'   ## To about error after logout

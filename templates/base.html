@@ -20,29 +20,55 @@
 
     {% endblock title %}
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light font-weight-bold" style="background-color: #2BBBAD">
       <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="{% url 'todolist' %}">To-do List</a>
-          <a class="nav-item nav-link" href="{% url 'contact' %}">Contact</a>
-          <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+          <a class="nav-item nav-link text-white" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link text-white" href="{% url 'todolist' %}">To-do List</a>
+          <a class="nav-item nav-link text-white" href="{% url 'contact' %}">Contact</a>
+          <a class="nav-item nav-link text-white" href="{% url 'about' %}">About</a>
         </div>
       </div>
+<!-- Check User is Logged In or Logged Out To Give Permission Start -->
+
+        {% if user.is_authenticated %} <!-- User is Logged In -->
+{#        <div class="form-inline my-2 my-lg-0">#}
+{#            <div class="mt-2 bg-dark text-white">#}
+{#                <p><i class="fa fa-user fa-lg text-capitalize"> {{ user.username }}</i></p> <!-- Logged In Username will show -->#}
+{#            </div>#}
+{##}
+{#            <a href="{% url 'logout' %}"><button class="btn btn-light ml-2" type="submit">Logout</button></a>#}
+{#        </div>#}
+
+        <div class="dropdown mr-lg-5">
+          <button class="btn border-light text-light dropdown-toggle fa fa-user fa-lg" style="background-color: #2BBBAD" type="button" data-toggle="dropdown" aria-haspopup="true">
+          </button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item text-capitalize" type="button">{{ user.username }}</button>   <!-- Logged In Username will show -->
+            <a href="{% url 'logout' %}"><button class="dropdown-item" type="button">Logout</button></a>
+          </div>
+        </div>
+
+        {% else %} <!-- User is Logged Out -->
+
+        <a href="{% url 'login' %}"><button class="btn border-light mr-2 text-white font-weight-bold" style="background-color: #2BBBAD" type="submit">Login</button></a>
+        <a href="{% url 'register' %}"><button class="btn border-light text-white font-weight-bold" style="background-color: #2BBBAD" type="submit">Register</button></a>
+
+        {% endif %}
+<!-- Check User is Logged In or Logged Out To Give Permission End -->
     </nav>
 
   </head>
 
-  <body class="bg-light">
+  <body>
+
 
   {% block content %}
-  <div class="container">
-    <h1>{{ welcome_text }}</h1>
-  </div>
+
   {% endblock %}
 
 

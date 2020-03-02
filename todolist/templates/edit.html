@@ -21,12 +21,18 @@
 {% endif %}
 
 <!-- Forms Start -->
-<form method="POST" class="row">
-    {% csrf_token %}
-    <input type="text" name="task" class="form-control col-lg-9" value="{{ task_obj.task }}">&nbsp;&nbsp;
-    <input type="hidden" name="done" value="{{ task_obj.done }}">
-    <button type="submit" class="btn btn-dark col-lg-2">Update Task</button>
-</form>
+{% if task_obj.manager == request.user %}
+    <form method="POST" class="row">
+        {% csrf_token %}
+        <input type="text" name="task" class="form-control col-lg-9" value="{{ task_obj.task }}">&nbsp;&nbsp;
+        <input type="hidden" name="done" value="{{ task_obj.done }}">
+        <button type="submit" class="btn btn-secondary col-lg-2">Update Task</button>
+    </form>
+
+{% else %}
+    <p>Access Restricted, You Are Not Allowed!</p>
+
+{% endif %}
 <!-- Forms End -->
 
 </div>

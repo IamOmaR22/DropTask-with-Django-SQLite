@@ -27,7 +27,7 @@
     {% csrf_token %}
     <label class="col-lg-2">Task For Today?</label>
     <input type="text" name="task" class="form-control col-lg-8" placeholder="New Task?">&nbsp;&nbsp;
-    <button type="submit" class="btn btn-primary col-lg-1">Add Task</button>
+    <button type="submit" class="btn btn-secondary col-lg-1">Add Task</button>
 </form>
 <!-- Forms End -->
     <br>
@@ -46,7 +46,7 @@
   {% for obj in all_tasks %} <!-- obj contains task,id,done etc -->
       {% if obj.done %}
         <tr class="table-success row"> <!-- color -->
-          <td class="col-8">{{ obj.task }}</td>
+          <td class="col-8"><del>{{ obj.task }}</del></td>
           <td class="col-2"><a class="btn btn-dark" href="{% url 'pending_task' obj.id %}">Mark As Pending</a></td>
           <td class="col-1"><a class="btn btn-warning" href="{% url 'edit_task' obj.id %}"><i class="fa fa-edit fa-lg"></i> Ed.</a></td>
           <td class="col-1"><a class="btn btn-danger" href="{% url 'delete_task' obj.id %}"><i class="fa fa-trash fa-lg"></i> Del.</a></td>

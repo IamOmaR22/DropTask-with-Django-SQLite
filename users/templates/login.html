@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block title %}
+<title>Login - DropTask</title>
+{% endblock title %}
+
+
+  {% block content %}
+
+<div class="container">
+        <br>
+
+        <!-- Message Alert Start -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+        <!-- Message Alert End -->
+    <div class="row justify-content-center">
+        <form action="" method="post" class="mt-3 col-6">
+            <h2>Login On DropTask</h2>
+            {% csrf_token %}
+
+            {{ form | crispy }}
+
+            <button class="btn btn-secondary mb-5" type="submit">Login</button>
+
+        </form>
+    </div>
+
+</div>
+  {% endblock %}
