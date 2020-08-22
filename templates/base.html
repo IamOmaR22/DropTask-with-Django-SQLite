@@ -20,17 +20,17 @@
 
     {% endblock title %}
 
-    <nav class="navbar navbar-expand-lg navbar-light font-weight-bold" style="background-color: #2BBBAD">
+    <nav class="navbar navbar-expand-lg navbar-dark font-weight-bold" style="background-color: #2BBBAD">
       <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt=""></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link text-white" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link text-white" href="{% url 'todolist' %}">To-do List</a>
-          <a class="nav-item nav-link text-white" href="{% url 'contact' %}">Contact</a>
-          <a class="nav-item nav-link text-white" href="{% url 'about' %}">About</a>
+          <a class="nav-item {% block homeactive %} {% endblock homeactive %} nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item {% block todoactive %} {% endblock todoactive %} nav-link" href="{% url 'todolist' %}">To-do List</a>
+          <a class="nav-item {% block contactactive %} {% endblock contactactive %} nav-link" href="{% url 'contact' %}">Contact</a>
+          <a class="nav-item {% block aboutactive %} {% endblock aboutactive %} nav-link" href="{% url 'about' %}">About</a>
         </div>
       </div>
 <!-- Check User is Logged In or Logged Out To Give Permission Start -->
