@@ -1,14 +1,7 @@
-# Quick And Easy To Use Anytime, Anywhere!
-## "Plan Your Day Better, Get Your Life Organized". DropTask Lets You Keep Track Of Yor Task In One Place.
+# DropTask
+*Quick And Easy To Use Anytime, Anywhere! "Plan Your Day Better, Get Your Life Organized".*
 
-# Tools
-## Front-end Part
-* HTML
-* CSS
-* Bootstrap
-## Back-end
-* Django
-* SQLite 3
+*DropTask Lets You Keep Track Of Yor Task In One Place. You can add your daily task, can completed by clicking, can update a task and also can delete a task.*
 
 # Features
 * Add task
@@ -18,6 +11,15 @@
 * Contact
 * About
 * etc,....
+
+# Tools
+## Front-end Part
+* HTML
+* CSS
+* Bootstrap
+## Back-end
+* Django
+* SQLite 3
 
 # Screenshots of the Project
 <p align="center">
