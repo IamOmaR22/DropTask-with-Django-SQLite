@@ -110,6 +110,8 @@ def contact(request):
 def about(reqest):
 
     context = {
-        'about_text':"Welcome To About Page"
+        'about_text':"Welcome To About Page",
+        'omar1':"Hi! I am Md. Omar Faruk,",
+        'omar2':" a web developer focused on crafting great web experiences."
     }
     return render(reqest, 'about.html', context)
