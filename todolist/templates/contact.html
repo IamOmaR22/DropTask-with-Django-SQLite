@@ -1,13 +1,32 @@
 {% extends 'base.html' %}
 
-{% block title %}
-<title>Contact Me - DropTask</title>
-{% endblock title %}
+{% block title %} DropTask | Contact Me {% endblock title %}
 
 {% block contactactive %} active {% endblock contactactive %}
 
-  {% block content %}
-  <div class="container">
-    <h1>{{ contact_text }}</h1>
+{% block content %}
+  <div class="container my-3">
+      <h3>Contact iCoder Admin</h3>
+      <form action="{% url 'contact' %}" method="POST">
+          {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="phone" class="form-control" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+            <label for="content">Description - Issues</label>
+            <textarea class="form-control" name="content" id="content" cols="30" rows="6"></textarea>
+        </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
   </div>
-  {% endblock %}
+{% endblock %}

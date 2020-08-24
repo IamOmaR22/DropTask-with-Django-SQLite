@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from todolist.models import TaskList
+from todolist.models import TaskList, Contact
 from todolist.forms import TaskForm
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -90,12 +90,20 @@ def pending_task(request, task_id):
 
 
 
-def contact(reqest):
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        content = request.POST['content']
 
-    context = {
-        'contact_text':"Welcome To Contact Page"
-    }
-    return render(reqest, 'contact.html', context)
+        if len(name)<2 or len(email)<3 or len(phone)<10 or len(content)<4:
+            messages.error(request, "Please fill the form correctly!")
+        else:
+            contact = Contact(name=name, email=email, phone=phone, content=content)
+            contact.save()
+            messages.success(request, 'Your message has been sent successfully!')
+    return render(request, 'contact.html')
 
 
 
@@ -105,4 +113,3 @@ def about(reqest):
         'about_text':"Welcome To About Page"
     }
     return render(reqest, 'about.html', context)
-
