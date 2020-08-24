@@ -44,12 +44,12 @@
 {#            <a href="{% url 'logout' %}"><button class="btn btn-light ml-2" type="submit">Logout</button></a>#}
 {#        </div>#}
 
-        <div class="dropdown mr-lg-5">
+        <div class="dropdown">
           <button class="btn border-light text-light dropdown-toggle fa fa-user fa-lg" style="background-color: #2BBBAD" type="button" data-toggle="dropdown" aria-haspopup="true">
           </button>
-          <div class="dropdown-menu">
+          <div class="dropdown-menu" style="right: 0; left: auto;">
             <button class="dropdown-item text-capitalize" type="button">{{ user.username }}</button>   <!-- Logged In Username will show -->
-            <a href="{% url 'logout' %}"><button class="dropdown-item" type="button">Logout</button></a>
+            <a class="dropdown-item" href="{% url 'logout' %}" role="button">Logout</a>
           </div>
         </div>
 
