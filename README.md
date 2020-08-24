@@ -25,6 +25,7 @@
 <p align="center">
   <img width="660" height="300" src="static/images/a.png">
   <img width="660" height="300" src="static/images/b.png">
+  <img width="660" height="300" src="static/images/c.png">
 </p>
 
 **Copyright (c)** 2020-3020 Md. Omar Faruk
